@@ -47,6 +47,17 @@ const App: React.FC = () => {
   const [selectedAccount, setSelectedAccount] = useState<string | null>(null);
   const [editingEntry, setEditingEntry] = useState<LedgerEntry | null>(null);
   const [debugInfo, setDebugInfo] = useState('');
+  
+  const refreshData = async () => {
+    if (user) {
+      const refreshedEntries = await storageService.getEntries(user.id);
+      const refreshedAccounts = await storageService.getAccounts(user.id);
+      setEntries(refreshedEntries);
+      setAccounts(refreshedAccounts);
+      setDebugInfo('Data refreshed');
+      setTimeout(() => setDebugInfo(''), 2000);
+    }
+  };
 
   useEffect(() => {
     const storedUser = storageService.getCurrentUser();
