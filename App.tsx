@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { User, LedgerEntry, ViewMode, EntryType, Settings as SettingsType } from './types';
 
+import { storageService } from './services/storageService';
+
 interface Account {
   id: string;
   name: string;
   type: 'checking' | 'savings' | 'credit';
   balance: number;
   createdAt: number;
+  isEMI?: boolean;
 }
-import { storageService } from './services/storageService';
 import Auth from './components/Auth';
 import Dashboard from './components/Dashboard';
 import Accounts from './components/Accounts';
