@@ -1,0 +1,5 @@
+{
+  "name": "LedgerKeeper AI",
+  "description": "A modern, responsive personal finance ledger with AI-powered insights using Gemini. Track expenses, visualize trends, and chat with your financial data.",
+  "requestFramePermissions": []
+}
